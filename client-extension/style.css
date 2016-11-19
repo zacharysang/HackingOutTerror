@@ -1,19 +1,21 @@
-html {
-	height: 400;
-	max-height: 600;
+html, body {
+	max-height: 400;
 	width: 400;
 	background-color: #71f442;
 	font-family: Lato, Arial, Helvetica, Sans-serif;
+	
+	
 	}
 
 	
 #messages-container {
-	height: 350;
-	max-height: 350;
-	width: 360;
-	padding-bottom: 350;
+	max-height: 400;
+	height: 370;
+	width: 370;
 	overflow-y: scroll;
 	overflow-x:hidden;
+	
+	
 }
 
 #input-box {

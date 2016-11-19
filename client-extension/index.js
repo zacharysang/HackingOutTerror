@@ -4,8 +4,7 @@
 
 
 //connect to socket
-	var socket = new io.Socket();
-	socket.connect('http://tchat.localtunnel.me');
+	var socket = new io.Socket().connect('http://tchat.localtunnel.me');
 	
 	socket.on('connect',function(){
 		console.log("successfully connected to server");

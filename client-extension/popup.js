@@ -120,10 +120,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/////////////////////end of popup rendering code, beginning of the the custom goodness////////////
+/////////////////////end of popup rendering code, beginning of the custom goodness////////////
 	
 
-
+//aquire a userName
+if(document.cookie == "")
+		{
+			var userName = prompt('What is your name?',"");
+			document.cookie = userName;
+		}else{
+			var userName = document.cookie;
+		}
 	
 //sends message to server (triggered by event)
 function sendMessage(event){
@@ -165,7 +172,6 @@ function printMessage(data){
 	//entry point for popup window functionality
 function docReady () {
 	
-	userName = "Zak";
 	
 	$('#input-box').keypress(function(event){
 			

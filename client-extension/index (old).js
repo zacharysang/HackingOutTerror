@@ -5,11 +5,12 @@
 		//when server sends us a new-message2 event, make a new message
 		socket.on('new-message',printMessage);
 	*/	
-		
+		//alert('pop-pop!');
 		//run 'documentready' function once document is loaded and ready
 		$(document).ready(documentready)
 		
 		//collect user's name (login process will go here later)
+		
 		if(document.cookie == "")
 		{
 			var userName = prompt('What is your name?',"");
@@ -17,6 +18,8 @@
 		}else{
 			var userName = document.cookie;
 		}
+		
+		
 		function documentready(){
 			
 		//define 'enterkey' event on input-box text box
@@ -32,9 +35,7 @@
 		});
 		
 		//bind input box enterkey event and send button events
-		//$("#send-button").click($("#input-box"),sendMessage);
-		$("#send-button").click(function () {alert('clicked!');})
-		
+		$("#send-button").click($("#input-box"),sendMessage);
 		$("#input-box").on("enterkey",$("#input-box"),sendMessage);
 		
 		//utility bar button events
@@ -42,10 +43,14 @@
 		$("#write-button").click("Hello console! (from client)",logText);
 		
 		}
-			function logText(event){
+		
+		
+	
+function logText(event){
 			socket.emit('clear-console',event.data);
 		}
-		function sendMessage(event){
+
+function sendMessage(event){
 			//get text from input-box
 			var text = event.data.val();
 			
@@ -59,13 +64,14 @@
 			socket.emit('new-message',{msg:text,time:timeStr,usr:userName});
 			
 		}
+		
 		//constructor for new message element
-		function newMessage(message,sender,time){
+function newMessage(message,sender,time){
 			console.log("new message called!")
 			return '<tr><td class="message-text">'+message+'</td><td align="right" class="message-info"> | '+sender+' ('+time+')</td></tr>';
 		}
 		//function to print value from textbox into messages container
-		function printMessage(data){
+function printMessage(data){
 			
 			console.log("printMessage called!")
 			console.log("data: ");
@@ -85,3 +91,4 @@
 			
 			
 		}
+		

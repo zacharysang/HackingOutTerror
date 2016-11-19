@@ -88,9 +88,11 @@ function getImageUrl(searchTerm, callback, errorCallback) {
   x.send();
 }
 
+/*
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
+*/
 
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
@@ -116,3 +118,73 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+/////////////////////end of popup rendering code, beginning of the the custom goodness////////////
+	
+
+
+	
+//sends message to server (triggered by event)
+function sendMessage(event){
+		
+			//get text from input-box
+			var text = event.data.val();
+			
+			//get timeStr
+			var currTime = new Date();
+			var timeStr = String(currTime.getHours()) + ":" + String(currTime.getMinutes()) + ":" + String(currTime.getSeconds());
+			
+			//clear box after printing
+			event.data.val("");
+			//socket.emit('new-message',{msg:text,time:timeStr,usr:userName});
+			printMessage({msg:text,time:timeStr,usr:userName});
+			
+		}
+	
+//Takes message details and returns a message html element
+function newMessage(message,sender,time){
+			return '<tr><td class="message-text">'+message+'</td><td align="right" class="message-info"> | '+sender+' ('+time+')</td></tr>';
+		}
+		
+//To be called when receiving a message, creates new message and inserts it
+function printMessage(data){
+			alert('printing message!');
+			var msg = data.msg;
+			var timeStr = data.time;
+			var sender = data.usr;
+			
+			if(msg != ""){
+				var messagesContainer = $(".messages-body");
+				
+				//insert new message element
+				messagesContainer.append(newMessage(msg,timeStr,sender));
+			}
+}
+
+
+	//entry point for popup window functionality
+function docReady () {
+	
+	userName = "Zak";
+	
+	$('#input-box').keypress(function(event){
+			
+			//get keycode from event arg if it exists
+			var keycode = (event.keyCode ? event.keyCode : event.which);
+		
+			//if enter key pressed, trigger enterkey event on 'this'
+			if(keycode == 13){
+				$(this).trigger("enterkey");
+			}
+		});
+		
+	$("#send-button").click($("#input-box"),sendMessage);
+	$("#input-box").on("enterkey",$("#input-box"),sendMessage)
+	
+}
+
+$(document).ready(docReady);
+
+
+

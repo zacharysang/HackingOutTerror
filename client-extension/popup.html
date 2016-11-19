@@ -1,24 +1,15 @@
 <html>
 	<head>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
 		<div id="text"></div>
 		<table>
-			<thead>
-				<tr>
-				<th>Username</th>
-				<th>Message</th>
-				<th>Time</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				
-				</tr>
+			<tbody id="messages-body">
 			</tbody>
-			</table>		
+		</table>		
 		<input type="text" id="input-box" value="Talk to people!" />
 		<button id="send-button">Send</button>
 	</body>
-		<script>$("#thebutton").onclick(function () {chrome.extension.getBackgroundPage().console.log("hi");})</script>
+	<script type="text/javascript" src="popup.js"></script>
 </html>

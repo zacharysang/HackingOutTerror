@@ -149,13 +149,12 @@ function newMessage(message,sender,time){
 		
 //To be called when receiving a message, creates new message and inserts it
 function printMessage(data){
-			alert('printing message!');
 			var msg = data.msg;
 			var timeStr = data.time;
 			var sender = data.usr;
 			
 			if(msg != ""){
-				var messagesContainer = $(".messages-body");
+				var messagesContainer = $("#messages-body");
 				
 				//insert new message element
 				messagesContainer.append(newMessage(msg,timeStr,sender));

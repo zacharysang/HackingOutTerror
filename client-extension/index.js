@@ -20,7 +20,7 @@
 		
 			
 		//define 'enterkey' event on input-box text box
-		$('#input-box').keypress(function(event){
+		$('#textbox').keypress(function(event){
 			
 			//get keycode from event arg if it exists
 			var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -32,17 +32,12 @@
 		});
 		
 		//bind input box enterkey event and send button events
-		$("#send-button").click($("#input-box"),sendMessage);
-		$("#input-box").on("enterkey",$("#input-box"),sendMessage);
-		
-		//utility bar button events
-		$("#clear-button").click("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",logText);
-		$("#write-button").click("Hello console! (from client)",logText);
-		
+		//$("#send-button").click($("#textbox"),sendMessage);
+		$("#textbox").on("enterkey",$("#textbox"),sendMessage);
 		}
-			function logText(event){
-			socket.emit('clear-console',event.data);
-		}
+			//function logText(event){
+			//socket.emit('clear-console',event.data);
+		//}
 		function sendMessage(event){
 			//get text from input-box
 			var text = event.data.val();

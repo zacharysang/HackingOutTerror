@@ -1,3 +1,8 @@
+var port = 8080;
+
+//var localtunnel = require('localtunnel');
+//var tunnel = localtunnel()
+
 //import express and instantiate it
 var express = require('express');
 var app = express();
@@ -10,9 +15,9 @@ var io = require('socket.io')(http);
 
 app.use(express.static(__dirname + '/public'));
 
-http.listen(8080,function(){
+http.listen(port,function(){
 	
-	console.log("Running server on port 8080...");
+	console.log("Running server on port "+parseInt(port)+"...");
 	
 });
 
@@ -33,14 +38,3 @@ io.on('connection',function(socket){
 });
 
 
-/*
-app.post('/', function(req, res){
-	console.log("POST request received!");
-	//console.log("req: ");
-	//console.log(req);
-	
-	//need to write response
-	//res.sendFile(__dirname + '/public' + '/index.html');
-	
-});
-*/

@@ -77,6 +77,7 @@ function sendMessage(event){
 			//clear box after printing
 			event.data.val("");
 			
+			printMessage({msg:text,time:timeStr,usr:userName});
 			//socket.emit('new-message',{msg:text,time:timeStr,usr:userName});
 						
 		}
@@ -105,12 +106,8 @@ function printMessage(data){
 function docReady () {
 		
 	
-<<<<<<< HEAD
-		
-	userName = "Zak";
-=======
->>>>>>> f5916098afa438ab320ad2937c3838bcf2771720
-	
+
+
 	$('#input-box').keypress(function(event){
 			
 			//get keycode from event arg if it exists

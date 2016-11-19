@@ -2,19 +2,24 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+	
+	
+
 /**
  * Get the current URL.
  *
  * @param {function(string)} callback - called when the URL of the current tab
  *   is found.
  */
-function getCurrentTabUrl(callback) {
+function getCurrentTabUrl() {
   // Query filter to be passed to chrome.tabs.query - see
   // https://developer.chrome.com/extensions/tabs#method-query
   var queryInfo = {
     active: true,
     currentWindow: true
   };
+  
+  var retUrl;
 
   chrome.tabs.query(queryInfo, function(tabs) {
     // chrome.tabs.query invokes the callback with a list of tabs that match the
@@ -34,18 +39,24 @@ function getCurrentTabUrl(callback) {
     // "url" properties.
     console.assert(typeof url == 'string', 'tab.url should be a string');
 
-    callback(url);
+	//alert("url: " + url);
+    //retUrl = url;
+	
   });
+  
+  //alert(retUrl);
+  return retUrl;
 
 }
-
-
 
 	
 //sends message to server (triggered by event)
 function sendMessage(event){
 		
-			var sourceURL = 0;
+			var sourceUrl = getCurrentTabUrl();
+			//alert("sourceUrl: " + sourceUrl);
+			
+			
 		
 			//get text from input-box
 			var text = event.data.val();
@@ -57,7 +68,7 @@ function sendMessage(event){
 			//clear box after printing
 			event.data.val("");
 			
-			socket.emit('new-message',{msg:text,time:timeStr,usr:userName});
+			//socket.emit('new-message',{msg:text,time:timeStr,usr:userName});
 						
 		}
 	
@@ -84,9 +95,7 @@ function printMessage(data){
 	//entry point for popup window functionality
 function docReady () {
 		
-	//connect to socket
-	//var socket = new io.Socket();
-	//socket.connect('http://10.52.244.201:8080');
+	
 		
 	userName = "Zak";
 	

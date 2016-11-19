@@ -2,10 +2,23 @@
 	<head>
 	</head>
 	<body>
-	
-		<button id="thebutton">Click Me</button>
 		<div id="text"></div>
-		
+		<table>
+			<thead>
+				<tr>
+				<th>Username</th>
+				<th>Message</th>
+				<th>Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				
+				</tr>
+			</tbody>
+			</table>		
+		<input type="text" id="input-box" value="Talk to people!" />
+		<button id="send-button">Send</button>
 	</body>
 		<script>$("#thebutton").onclick(function () {chrome.extension.getBackgroundPage().console.log("hi");})</script>
 </html>

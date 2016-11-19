@@ -1,5 +1,23 @@
 html {
 	height: 400;
 	width: 400;
+	background-color: #ccd9ff;
+	font-family: Lato, Arial, Helvetica, Sans-serif;
+	}
+
 	
+#messages-container {
+	height: 350;
+	max-height: 350;
+	width: 360;
+	overflow-y: scroll;
+	overflow-x:hidden;
+}
+
+#input-box {
+	width: 80%;
+}
+
+#send-button {
+	width: 15%;
 }

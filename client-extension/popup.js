@@ -157,7 +157,7 @@ function printMessage(data){
 				var messagesContainer = $("#messages-body");
 				
 				//insert new message element
-				messagesContainer.append(newMessage(msg,timeStr,sender));
+				messagesContainer.append(newMessage(msg,sender,timeStr));
 			}
 }
 

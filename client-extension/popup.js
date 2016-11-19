@@ -49,6 +49,15 @@ function getCurrentTabUrl() {
 
 }
 
+
+//aquire a userName
+if(document.cookie == "")
+		{
+			var userName = prompt('What is your name?',"");
+			document.cookie = userName;
+		}else{
+			var userName = document.cookie;
+		}
 	
 //sends message to server (triggered by event)
 function sendMessage(event){
@@ -96,8 +105,11 @@ function printMessage(data){
 function docReady () {
 		
 	
+<<<<<<< HEAD
 		
 	userName = "Zak";
+=======
+>>>>>>> f5916098afa438ab320ad2937c3838bcf2771720
 	
 	$('#input-box').keypress(function(event){
 			

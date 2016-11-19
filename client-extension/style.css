@@ -1,5 +1,6 @@
 html {
 	height: 400;
+	max-height: 600;
 	width: 400;
 	background-color: #71f442;
 	font-family: Lato, Arial, Helvetica, Sans-serif;
@@ -10,6 +11,7 @@ html {
 	height: 350;
 	max-height: 350;
 	width: 360;
+	padding-bottom: 350;
 	overflow-y: scroll;
 	overflow-x:hidden;
 }

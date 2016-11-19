@@ -1,10 +1,11 @@
 <html>
 	<head>
-		<script src="jquery-3.1.1.min.js"></script>
-		<script>$("#thebutton").onclick(function () {chrome.extension.getBackgroundPage().console.log(hi);})</script>
 	</head>
 	<body>
+	
 		<button id="thebutton">Click Me</button>
 		<div id="text"></div>
+		
 	</body>
+		<script>$("#thebutton").onclick(function () {chrome.extension.getBackgroundPage().console.log("hi");})</script>
 </html>
